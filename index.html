@@ -58,7 +58,6 @@
                     });
                     $players[i] = $('#player' + i);
                 }
-                $players[1].hide();
             }
 
             var vidIdx = 0;
@@ -66,10 +65,10 @@
 
             function next() {
                 var bufferPlayer = Number(!currPlayer);
-                $players[bufferPlayer].hide();
+                $players[bufferPlayer].css('z-index', 0);
 
                 players[currPlayer].playVideo();
-                $players[currPlayer].show(); // delay long enough so we don't see play button
+                $players[currPlayer].css('z-index', 1); // delay long enough so we don't see play button
 
                 players[bufferPlayer].loadVideoById(vids[vidIdx++]);
 
